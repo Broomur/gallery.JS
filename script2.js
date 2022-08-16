@@ -44,13 +44,19 @@ function getURL(numPage) {
 function pagination(numPage) {
     numPage = parseInt(numPage);
     if (numPage == 1) {
-        document.querySelector(".left").innerText = numPage;
-        document.querySelector(".central").innerText = numPage +1;
-        document.querySelector(".right").innerText = numPage +2;
+        left.innerText = numPage;
+        left.classList.add("active");
+        central.innerText = numPage +1;
+        central.classList.remove("active");
+        right.innerText = numPage +2;
+        right.classList.remove("active");
     } else {
-        document.querySelector(".left").innerText = numPage -1;
-        document.querySelector(".central").innerText = numPage;
-        document.querySelector(".right").innerText = numPage +1;
+        left.innerText = numPage -1;
+        left.classList.remove("active");
+        central.innerText = numPage;
+        central.classList.add("active");
+        right.innerText = numPage +1;
+        right.classList.remove("active");
     }
 }
 
@@ -65,6 +71,9 @@ let url = getURL(numPage);
 let page = new Page(url);
 let pictures = page.displayImg(6);
 let paginNb = document.querySelectorAll(".paginNb");
+let left = document.querySelector(".left");
+let central = document.querySelector(".central");
+let right = document.querySelector(".right");
 
 /* ***************************************
 *************** LISTENERS ****************
