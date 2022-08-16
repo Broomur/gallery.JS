@@ -42,34 +42,3 @@ getImg(url)
 let prevBtn = prevBTN();
 
 let nexBtn = nextBTN();
-
-/*
-async function getImg(url) {
-    const RESPONSE = await fetch(url);
-    const JSON = await RESPONSE.json();
-    return JSON;
-}
-
-class Picture {
-    constructor (url, num) {
-        this.url = url;
-        this.num = num;
-    }
-
-    displayImg() {
-        json = getImg(this.url);
-        let src = json[this.num].download_url;
-        let img = document.createElement("img");
-        img.setAttribute("src", src);
-        document.body.appendChild(img);
-    }
-}
-
-let page = 1;
-let url = `https://picsum.photos/v2/list?page=${page}&limit=6`;
-
-
-img = new Picture(url, 1);
-
-img.displayImg();
-*/

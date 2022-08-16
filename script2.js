@@ -21,7 +21,8 @@ class Picture {
         let src = `https://picsum.photos/id/${id}/300`;
         let img = document.createElement("img");
         img.setAttribute("src", src);
-        line.appendChild(img);
+        img.setAttribute("class", "col-12 col-md-4 mb-3")
+        root.appendChild(img);
     };
 }
 
@@ -32,33 +33,34 @@ function getURL(numPage) {
 function previousBtn(numPage) {
     let prevBtn = document.createElement("button");
     prevBtn.innerHTML = "previous";
-    document.body.appendChild(prevBtn);
+    prevBtn.setAttribute("type", "button");
+    prevBtn.setAttribute("class", "btn btn-success m-3 position-absolute top-50 end-50");
+    btnContainer.appendChild(prevBtn);
     prevBtn.addEventListener("click", () => {
-        if (numPage != 1) {
-            line.innerHTML = null;
-            numPage--;
-            url = getURL(numPage);
-            page = new Page(url);
-            pictures = page.displayImg(6);
-        }
+        root.innerHTML = null;
+        numPage--;
+        url = getURL(numPage);
+        page = new Page(url);
+        pictures = page.displayImg(6);
     })
 };
 function nextBtn(numPage) {
     let nexBtn = document.createElement("button");
     nexBtn.innerHTML = "next";
-    document.body.appendChild(nexBtn);
+    nexBtn.setAttribute("type", "button");
+    nexBtn.setAttribute("class", "btn btn-success m-3 position-absolute top-50 start-50");
+    btnContainer.appendChild(nexBtn);
     nexBtn.addEventListener("click", () => {
-        if (numPage != 6) {
-            line.innerHTML = null;
-            numPage++;
-            url = getURL(numPage);
-            page = new Page(url);
-            page.displayImg(6);
-        }
+        root.innerHTML = null;
+        numPage++;
+        url = getURL(numPage);
+        page = new Page(url);
+        page.displayImg(6);
     })
 }
 
-let line = document.getElementById("line");
+let root = document.getElementById("root");
+let btnContainer = document.getElementById("btnContainer");
 let numPage = 1;
 let url = getURL(numPage);
 let page = new Page(url);
