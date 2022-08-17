@@ -38,7 +38,7 @@ class Picture {
 
 function getURL(numPage) {
     return `https://picsum.photos/v2/list?page=${numPage}&limit=6`;
-}
+};
 
 
 function pagination(numPage) {
@@ -57,8 +57,8 @@ function pagination(numPage) {
         central.classList.add("active");
         right.innerText = numPage +1;
         right.classList.remove("active");
-    }
-}
+    };
+};
 
 /* ***************************************
 *************** VARIABLES ****************
@@ -86,8 +86,8 @@ document.getElementById("previous").addEventListener("click", () => {
         page = new Page(url);
         pictures = page.displayImg(6);
         pagination(numPage);
-    }
-})
+    };
+});
 
 document.getElementById("next").addEventListener("click", () => {
     if (numPage < 100) {
